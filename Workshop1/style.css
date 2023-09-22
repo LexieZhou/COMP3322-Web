@@ -1,0 +1,152 @@
+#logo{
+    background-image: url("hku-cs-logo.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    height: 150px;
+    margin-top: 20px;
+}  
+
+ul {
+    padding-left: 0px;
+    margin-left: 30px;
+}
+
+li{
+    display: inline-block;
+    list-style-type: none;
+    margin-right: 30px;
+    background-color: orange;
+    padding: 10px;
+}
+
+li a{
+    text-decoration: none;
+    font-size: 20px;
+}
+
+a[target = "_blank"] {
+    background-color: darkorange;
+}
+
+a[target = "_blank"]:hover {
+    transition-duration: 1s;
+    background-color: orange;
+}
+	
+.searchInput {
+    width: 380px;
+    height: 30px;
+    border-width: 1px;
+    border-color: red;
+    font-size: 20px;
+}
+
+.searchButton {
+    width: 180px;
+    height: 30px;
+    background-color: lightgray;
+    font-weight: bold;
+    font-style: italic;
+    font-size: 16px;
+    color: black;
+    border: 0px;
+    text-shadow: 2px 2px 4px black;
+    background-image: linear-gradient(-45deg, deepskyblue, lightcoral, gold, mediumaquamarine);
+}
+
+#footer{
+    background-color: lightsalmon;
+    position: absolute;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    padding: 1rem;
+}
+
+#searchArea {
+}
+
+.col-1 {
+    margin: 2px;
+    width: 200px;
+    font-size: x-large;
+    background-color: lightgray;
+    padding-left: 10px;
+    padding-top: 10px;
+    height: 50px;
+    float: left;
+    overflow: auto;
+}
+
+.col-2 {
+    margin: 2px;
+    width: 400px; 
+    background-color: lightgray;
+    padding-left: 10px;
+    padding-top: 10px;
+    height: 50px;
+    float: left;
+    overflow: auto;
+}
+
+.col-2:hover{
+    background-color: whitesmoke;
+}
+
+
+@media screen and (max-width: 992px) {
+    ul {
+        margin-right: 2px;
+        font-size: 18px;
+    }
+    li {
+        margin-left: 2px;
+        margin-top: 2px;
+        margin-bottom: 2px;
+    }
+    #footer h3 {
+        font-size: medium;
+        margin-top: 1px;
+    }
+    #footer p {
+        font-size: small;
+        margin-top: 1px;
+        margin-bottom: 1px;
+    }
+    #searchArea div {
+        margin-top: 2px;
+        margin-bottom: 2px;
+    }
+    .col-2 {
+        clear: both;
+    }
+}
+
+@media screen and (max-width: 580px) {  
+    li {
+        margin-right: 0; 
+        font-size: 15px;
+    }
+    ul {
+        margin-left: 1px; 
+        margin-top: 1px; 
+        margin-bottom: 1px;
+    }
+    #footer h3 { 
+        font-size: small; 
+        margin-top: 0px;
+    }
+    #footer p {
+        font-size: x-small; 
+        margin-top: 0px; 
+        margin-bottom: 0px;
+    }
+    #searchArea div {
+        clear: both;
+    }
+    #searchArea > div:first-child,
+    #searchArea > div:last-child {
+      font-size: large;
+    }
+}
