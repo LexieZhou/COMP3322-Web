@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel='stylesheet' href='style.css'>
+<script src='main.js'></script>
+</head>
+<body>
+
+
+  <header class='container header'>
+    <h1>Workshop - CSS Animation and JavaScript Event Handling</h1>
+    <div id='banner'>
+      <p id='line'>WebAssembly brings the performance of native applications to the web. &nbsp; &nbsp; &nbsp; WebSockets are open connections sustained between the client and the origin HTTP server which enable data passing between them. &nbsp; &nbsp; &nbsp; The simplest use of workers is for performing a computationally expensive task without interrupting the user interface. &nbsp; &nbsp; &nbsp; A progressive web application is a type of application software delivered through the web, built using common web technologies including HTML, CSS and JavaScript.</p>
+    </div>
+  </header>
+
+  <section class='container'>
+    <div id='selector'>
+      <div class='menu blk1' id='blk1'>WebAssembly</div>
+      <div class='menu blk2' id='blk2'>WebSocket</div>
+      <div class='menu blk3' id='blk3'>Web Workers</div>
+      <div class='menu blk4' id='blk4'>Progressive Web App</div>
+    </div>
+    <article class='blk1' id='block1'>
+      <div class='infoblock'>
+        <img class='img-icon' src='images/WASM-mid.png' alt='WebAssembly Icon'>
+        <div>
+        <p>WebAssembly is a new type of code that can be run in modern web browsers — it is a low-level assembly-like language with a compact binary format that runs with near-native performance and provides languages such as C/C++, C# and Rust with a compilation target so that they can run on the web.</p>
+        <p>WebAssembly is designed to complement and run alongside JavaScript — using the WebAssembly JavaScript APIs, you can load WebAssembly modules into a JavaScript app and share functionality between the two. This allows you to take advantage of WebAssembly's performance and power and JavaScript's expressiveness and flexibility in the same apps, even if you don't know how to write WebAssembly code.</p>
+        </div>
+      </div>
+    </article>
+
+
+    <article class='blk2' id='block2' style='display: none;'>
+      <div class='infoblock'>
+        <img class='img-icon' src='images/websocket-mid.png' alt='WebSocket Icon'>
+        <div>
+        <p>The idea of WebSockets was borne out of the limitations of HTTP-based technology. With HTTP, a client requests a resource, and the server responds with the requested data. HTTP is a strictly unidirectional protocol — any data sent from the server to the client must be first requested by the client. Long-polling has traditionally acted as a workaround for this limitation. With long-polling, a client makes an HTTP request with a long timeout period, and the server uses that long timeout to push data to the client. Long-polling works, but comes with a drawback — resources on the server are tied up throughout the length of the long-poll, even when no data is available to send.</p>
+        <p>WebSockets, on the other hand, allow for sending message-based data, similar to UDP, but with the reliability of TCP. WebSocket uses HTTP as the initial transport mechanism, but keeps the TCP connection alive after the HTTP response is received so that it can be used for sending messages between client and server. WebSockets allow us to build “real-time” applications without the use of long-polling.</p>
+        </div>
+      </div>
+    </article>
+
+
+    <article class='blk3' id='block3' style='display: none;'>
+      <div class='infoblock'>
+        <img class='img-icon' src='images/WWorker.jpg' alt='Web Workers'>
+        <div>
+        <p>The Web Workers specification defines an API for spawning background scripts in your web application. Web Workers allow you to do things like fire up long-running scripts to handle computationally intensive tasks, but without blocking the UI or other scripts to handle user interactions. Workers utilize thread-like message passing to achieve parallelism. They're perfect for keeping your UI refresh, performant, and responsive for users.</p>
+        <p>A worker is an object created using a constructor (e.g. Worker()) that runs a named JavaScript file — this file contains the code that will run in the worker thread; workers run in another global context that is different from the current window. You can run whatever code you like inside the worker thread, with some exceptions. For example, you can't directly manipulate the DOM from inside a worker, or use some default methods and properties of the window object.</p>
+        </div>
+      </div>
+    </article>
+
+
+    <article class='blk4' id='block4' style='display: none;'>
+      <div class='infoblock'>
+        <img class='img-icon' src='images/PWA.png' alt='Progressive Web Apps'>
+        <div>
+        <p>Progressive Web Apps are web apps that use emerging web browser APIs and features along with traditional progressive enhancement strategy to bring a native app-like user experience to cross-platform web applications. Progressive Web Apps are a useful design pattern, though they aren't a formalized standard. PWA can be thought of as similar to AJAX or other similar patterns that encompass a set of application attributes, including use of specific web technologies and techniques. </p>
+        <p>In order to call a Web App a PWA, technically speaking it should have the following features: Secure contexts (HTTPS) - the web application must be served over a secure network, one or more Service Workers - a service worker is a script that allows intercepting and control of how a web browser handles its network requests and asset caching, and a manifest file - a JSON file that describes the name of the app, the start URL, icons, and all of the other details necessary to transform the website into an app-like format.</p>
+        </div>
+      </div>
+    </article>
+
+  </section>
+</body>
+</html>
