@@ -1,0 +1,346 @@
+/* Name: Zhou Zihan */
+/* Student Number: 3035772640 */
+
+body {
+    width: 80%;
+    min-width: 1000px;
+    margin: 0.5rem auto;
+}
+
+header {
+    font-family: Verdana;
+    background-color: #5e71bf;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+}
+
+header h1 {
+    color: white;
+    max-width: 50%;
+}
+
+header nav {
+    position: absolute;
+    bottom: 0px;
+    right: 10px;
+}
+
+header nav ul {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 15px;
+    row-gap: 10px;
+    justify-items: end;
+    align-items: center;
+    list-style: none;
+}
+
+header nav a {
+    color: #CDF4F5;
+    text-decoration: none;
+    position: relative;
+}
+
+header nav a:visited {
+    color: #bdafcc;
+}
+header nav a:hover {
+    color: white;
+    text-decoration: overline underline;
+    text-decoration-color: red;
+}
+
+header::after {
+    content: "";
+    background-image: url('hku-cs-logo.png');
+    background-position: top right;
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 1px;
+    right: 1px;
+    width: 200px;
+    height: 47px;
+}
+
+article {
+    font-family: Arial;
+}
+
+table {
+    border-collapse: collapse;
+}
+table td, th {
+    padding: 0.5rem;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #bebfc2;
+}
+
+table thead {
+    background-color: #5e71bf;
+}
+
+table thead th {
+    font-size: 1.2em;
+    text-align: left;
+    color: white;
+}
+
+table td:first-child, 
+table th:first-child {
+    width: 100px;
+}
+
+/* contact.html file */
+article table + table {
+    margin-top: 2rem;
+}
+
+/* professionalism.html file */
+article h3 + table td:first-child,
+article h3 + table th:first-child {
+    width: 150px;
+}
+article h3 + table th:nth-child(3) {
+    width: 80px;
+}
+
+article h3 + table td:nth-child(3) {
+    width: 80px;
+    text-align: center;
+}
+article>p::first-line{
+    font-weight: bold;
+}
+
+/* index.html file */
+article h2+table:only-of-type tbody tr td:first-child {
+    vertical-align: top;
+}
+
+/* information.html file */
+article nav {
+    width: 80%;
+    min-width: 1000px;
+    position: fixed;
+    bottom: 10px;
+    background-color: #5e71bf;
+    padding: 10px 0;
+}
+
+article nav ul {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 15px;
+    row-gap: 10px;
+    justify-items: start;
+    align-items: start;
+    list-style: none;
+}
+
+article nav ul li {
+    max-width: 300px;
+}
+
+article nav a {
+    color: #CDF4F5;
+    
+}
+article nav a:visited {
+    color: #bdafcc;
+}
+article nav a:hover {
+    color: white;
+    text-decoration: underline;
+}
+
+article section:last-child {
+    margin-bottom: 200px;
+}
+
+article section {
+    border-width: 0.5px;
+    border-style: dotted;
+    border-color: #bbbbbf;
+    background-color: #f9f9fb;
+    padding: 0 1rem;
+    width: 95%;
+    margin-bottom: 10px;
+    border-radius: 30px 30px 30px 30px / 60px 60px 60px 60px;
+}
+article section:nth-child(odd) {
+    float: left;
+}
+article section:nth-child(even) {
+    float: right;
+}
+
+/* mobile look */
+@media only screen and (max-width: 500px) {
+    body {
+        width: 100%;
+        min-width: 0px;
+    }
+    article {
+        width: calc(100% - 20px);
+        padding: 0 10px;
+    }
+    header {
+        width: 100%;
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    header::after {
+        display: none;
+    }
+
+    header h1 {
+        width: 100%;
+        max-width: 90%;
+        min-width: none;
+        font-size: 1.5rem;
+        text-align: center;
+        overflow-wrap: break-word;
+    }
+    header nav {
+        position: static;
+        padding: 0px;
+        margin: 0px;
+    }
+    header nav ul {
+        padding: 0px;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        column-gap: auto;
+        row-gap: 10px;
+        justify-items: center;
+        align-items: center;
+        list-style: none;
+    }
+    
+    /* information.html file */
+    article nav {
+        width: calc(100% - 20px);
+        min-width: 0px;
+        position: fixed;
+        bottom: 0px;
+    }
+    article nav ul {
+        width: calc(100% - 20px);
+        padding-left: 10px;
+        display: flex; 
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+
+    }
+    article nav ul li {
+        display: inline-block;
+        width: calc(100% - 20px);
+        max-width: 100%;
+        text-align: left;
+        font-size: 0.9em;
+        margin: 1px 0;
+        padding: 0;
+    }
+
+    article section {
+        width: 100%;
+        box-sizing: border-box;
+    }
+    article section:last-child {
+        margin-bottom: 360px;
+    }
+
+    /* table view */
+    article table {
+        width: 100%;
+        table-layout: fixed;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    article table thead,
+    article table tbody {
+        width: 100%;
+    }
+
+    article table td a {
+        display: inline-block;
+        max-width: 100%;
+        word-wrap: break-word;
+    }
+    article table td{
+        text-wrap: wrap;
+        word-break: break-all;
+        word-wrap: break-word;
+    }
+    article table p {
+        text-wrap: wrap;
+        word-break: break-all;
+        word-wrap: break-word;
+    }
+    article table tbody li {
+        max-width: 100%;
+        word-wrap: break-word;
+    }
+    /* professionalism.html file */
+    article h3 + table td:first-child,
+    article h3 + table th:first-child {
+        width: auto;
+    }
+    article h3 + table th:nth-child(3) {
+        width: auto;
+    }
+    article h3 + table td {
+        word-break: break-word;
+        overflow-wrap: break-word;
+    }
+    article h3 + table li {
+        word-break: break-word;
+        overflow-wrap: break-word;
+    }
+    /* contact.html file */
+    article h2~table {
+        table-layout: auto;
+    }
+
+    /* index.html file */
+    article h2+table:only-of-type tbody tr{
+        display: flex;
+        flex-direction: column;
+        border-style: solid;
+        border-width: medium;
+        border-color: #8f9194;
+        overflow: hidden;
+    }
+    article h2+table:only-of-type tbody th,
+    article h2+table:only-of-type tbody td {
+        border-style: solid;
+        border-width: small;
+        border-color: #bebfc2;
+        max-width: 100%;
+    }
+    article h2+table:only-of-type tbody td:first-child {
+        width: 100%;
+        text-align: left;
+    }
+
+    article h2+table:only-of-type thead {
+        display: none;
+    }
+    article h2+table:only-of-type tbody tr td:first-child p::before{
+        content: "Date: ";
+        font-weight: bold;
+    }
+    
+
+}
+
