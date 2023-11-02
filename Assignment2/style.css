@@ -1,0 +1,325 @@
+body {
+    font: 400 15px/1.8 "Lato", sans-serif;
+    width: 80%;
+    margin: 0 auto;
+}
+.row {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+/* block */
+.block {
+    box-shadow: rgba(0, 0, 0, 0.3) 0 1px 3px;
+    margin: 5px;
+    padding: 0 5px;
+}
+#headerBlock {
+    position: relative;
+    height: 250px;
+    width: calc((100% - 20px) / 2);
+    background-color: #edf5fa;
+}
+.night {
+    color: white;
+}
+#myDataBlock {
+    height: 250px;
+    width: calc((100% - 20px) / 2);
+    background-color:#bde0b8;
+}
+#temperatureBlock {
+    height: 180px;
+    width: calc((100% - 30px) / 3);
+    background-color: #bcd4d6;
+}
+#rainfallBlock {
+    height: 180px;
+    width: calc((100% - 30px) / 3);
+    background-color: #f6f7d7;
+}
+#airBlock {
+    height: 180px;
+    width: calc((100% - 30px) / 3);
+    background-color: #e3e3e6;
+}
+#forecastBlock {
+    height: 250px;
+    width: 100%;
+    background-color: #efedfa;
+}
+/* block common detail */
+.blockTitle {
+    font-size: 20px;
+    margin: 0 5px;
+}
+.icon {
+    width: 60px;
+    height: 60px;
+    margin: 0 10px;
+}
+.rowBox {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    height: 35%;
+}
+.infoTxt {
+    font-size: 50px;
+    margin: 0 20px;
+}
+/* header block */
+#temperature, #humidity, #rainfall, #UV {
+    position: relative;
+}
+.smallIcon {
+    position: absolute;
+    height: 27px;
+    width: 25px;
+}
+#humidityIcon{
+    right: -20px;
+    top: 17px;
+}
+#rainfallIcon {
+    right: -15px;
+    top: 17px;
+}
+#UVIcon {
+    right: -20px;
+    top: 17px;
+}
+#updateMsg {
+    position: absolute;
+    font-size: 15px;
+    right: 5px;
+    bottom: 0px;
+    margin: 0 2px;
+}
+.suffix {
+    font-size: 15px;
+}
+#temperatureSuffix {
+    position: absolute;
+    top: 22px;
+    right: -17px;
+}
+#warningBtn {
+    position: absolute;
+    left: 0px;
+    bottom: 0px;
+    background-color: #de7882;
+    border: none;
+    max-width: 80%;
+    text-align: start;
+}
+#warningMsg {
+    font-size: 15px;
+    margin: 0px;
+    color: black !important;
+    text-align: start;
+}
+/* row 2 */
+.selectP {
+    margin: 0 5px;
+}
+.select {
+    margin: 0 5px;
+    width: 80%;
+}
+.selectResult {
+    font-size: 40px;
+    margin: 0 10px;
+}
+.selectResultaqhi {
+    font-size: 20px;
+    margin: 0 10px;
+}
+.selectSuffix {
+    font-size: 15px;
+    margin: 0;
+}
+#locationTemperature {
+    position: relative;
+}
+#TselectSuffix {
+    position: absolute;
+    top: 16px;
+}
+/* forecasts block */
+#forecasts {
+    width: 100%;
+    height: 200px;
+    position: relative;
+    overflow: hidden;
+}
+#forecastContent {
+    position: absolute;
+    left: 10px;
+    width: 100%;
+    height: 100%;
+    overflow-x: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    white-space: nowrap;
+}
+.dayForecast {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-width: 90px;
+    margin: 0 10px;
+}
+.forcastIcon {
+    width: 40px;
+    height: 40px;
+    margin: 2px 5px;
+}
+.PSRIcon {
+    width: 40px;
+    height: 40px;
+    margin: 2px 5px;
+}
+.forecastDate, .forecastTemps, .forecastHumidity {
+    font-size: 15px;
+    margin: 0 5px;
+}
+/* myData block */
+#locationTxt {
+    font-size: 15px;
+    margin: 0 10px;
+}
+#myDataInfoRow {
+    margin-top: 10px;
+}
+p#stationTemp {
+    position: relative;
+}
+span#stationTsuffix {
+    position: absolute;
+    top: 20px;
+}
+#stationAQHIInfo {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    margin-left: 60px;
+    position: relative;
+}
+#stationAQHIlevel {
+    font-size: 30px;
+    display: inline;
+    line-height: 1;
+    margin: 2px 0;
+}
+#stationAQHIrisk {
+    font-size: 20px;
+    display: inline;
+    line-height: 1;
+    margin: 2px 0;
+}
+#stationRainfall {
+    position: relative;
+}
+#stationRainfallIcon {
+    position: absolute;
+    right: -15px;
+    top: 17px;
+}
+#stationAQHIRiskIcon {
+    width: 40px;
+    height: 50px;
+    position: aboslute;
+    left: -50px;
+}
+@media only screen and (max-width: 500px) {
+    body {
+        font: 400 15px/1.8 "Lato", sans-serif;
+        margin: 0 10px;
+        width: 90%
+    }
+    .row {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+    /* .block {
+        box-shadow: rgba(0, 0, 0, 0.3) 0 1px 3px;
+        margin: 5px;
+        padding: 0 5px;
+        width: 100%;
+    } */
+    .night {
+        color: white;
+    }
+    #headerBlock {
+        position: relative;
+        display:flex;
+        flex-direction: column;
+        height: 250px;
+        width: 100%;
+        background-color: #edf5fa;
+    }
+    .night {
+        color: white;
+    }
+    #myDataBlock {
+        height: 250px;
+        width: 100%;
+        background-color:#bde0b8;
+    }
+    #temperatureBlock {
+        /* height: 180px; */
+        width: 100%;
+        background-color: #bcd4d6;
+        height: 35px;
+    }
+    #temperatureBlock > *:not(.blockTitle) {
+        display: none;
+    }
+    #rainfallBlock {
+        /* height: 180px; */
+        width: 100%;
+        background-color: #f6f7d7;
+        height: 35px;
+    }
+    #rainfallBlock > *:not(.blockTitle) {
+        display: none;
+    }
+    #airBlock {
+        /* height: 180px; */
+        width: 100%;
+        background-color: #e3e3e6;
+        height: 35px;
+    }
+    #airBlock > *:not(.blockTitle) {
+        display: none;
+    }
+    #forecastBlock {
+        height: 250px;
+        width: 100%;
+        background-color: #efedfa;
+    }
+    #warningBtn {
+        position: absolute;
+        left: 0px;
+        bottom: 0px;
+        background-color: #de7882;
+        border: none;
+        max-width: 100%;
+        text-align: start;
+    }
+    .expanded {
+        height: 180px !important;
+    }
+    .expanded > *:not(.blockTitle) {
+        display: block !important;
+    }
+}
