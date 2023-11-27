@@ -1,0 +1,61 @@
+body {
+	font-family: helvetica, Arial, Verdane, sans-serif;
+}
+
+p {
+	word-wrap:break-word;
+	font-family: sans-serif;
+}
+
+div {
+	display: block;
+}
+
+#List {
+	position: relative;
+	float: center;
+	padding-left: 70px;
+	height: 90%;
+	overflow-x: hidden;
+	overflow-y: auto;
+}
+
+#entries {
+	width: 310px;
+	
+}
+
+#entries > h5 {
+	margin-top: 2px;
+}
+
+.buttons{
+	position: relative;
+	float: center;
+	width: 200px;
+	height: 40px;
+	text-align: center;
+}
+
+.buttons > p{
+	position: relative;
+	text-align: center;
+	background-color: #cccccc;
+	margin-top: 2px;
+}
+
+span {
+	text-align: center;
+	padding: 2px;
+	font-weight: bold;
+}
+
+h3 {
+	display: inline;
+	color: #0000ff;
+	padding-left: 10px;
+}
+
+h5 {
+	color: #cccccc;
+}

@@ -1,0 +1,211 @@
+<html>
+  <head>
+  <meta charset="utf-8"/>
+    <title>Attendance System</title>
+    <link rel="stylesheet" type="text/css"  href="style.css">
+  </head>
+
+  <body>
+    <h1>Course Attendance System</h1>
+    <div id="List">
+    <div id="entries">
+    </div>
+
+    <div id="button_all" class="buttons">
+      <p> Show All</p>
+    </div>
+    
+    <input id="major" type="text"> 
+    <div class="buttons" id="majBtn">
+      <p>Filter by Major</p>
+    </div>
+    
+    <input id="course" type="text"> 
+    <div class="buttons" id="cBtn">
+      <p>Filter by Course</p>
+    </div>
+    
+    <font size="5" color="black"> Please fill in the following attributes for adding a student in the system (All fields must be filled) </font> <br/>
+    
+    <input id="newname" type="text" placeholder="Enter student name" size="40"> <br>
+    <input id="newmajor" type="text" placeholder="Enter student major" size="40">  <br>
+    <input id="newcourse" type="text" placeholder="Enter student course" size="40"> <br>
+    <input id="newcoursedate" type="text" placeholder="Enter student course date" size="40"> <br>
+    <input id="newattendance" type="text" placeholder="Enter student attendance" size="40"> <br>
+    
+    <div class="buttons" id="addStudent">
+      <p> Add a student </p>
+    </div>
+    
+                
+    </div>
+    
+    <script>
+      window.onload = function() {
+        showAll();
+        var btn_all = document.getElementById("button_all");
+        btn_all.addEventListener("click", showAll);
+        document.getElementById("majBtn").addEventListener('click', filterM);
+        document.getElementById("cBtn").addEventListener('click', filterC);
+        document.getElementById("addStudent").addEventListener('click', addstudent);
+      }
+
+    // Task 2.2 - to be implemented
+    function addstudent() {
+      let sname = document.getElementById("newname");
+      if (sname.validity.valueMissing) {
+        alert("Please enter a name");
+        sname.focus();
+        return;
+      }
+      let smajor = document.getElementById("newmajor");
+      let scourse = document.getElementById("newcourse");
+      let scoursedate = document.getElementById("newcoursedate");
+      let sattendance = document.getElementById("newattendance");
+
+      let datePattern = /^\d{4}-\d{2}-\d{2}$/;
+      if (smajor.validity.valueMissing) {
+        alert("Please enter a major");
+        smajor.focus();
+        return;
+      }
+      if (scourse.validity.valueMissing) {
+        alert("Please enter a course");
+        scourse.focus();
+        return;
+      }
+      if (scoursedate.validity.valueMissing) {
+        alert("Please enter a course date");
+        scoursedate.focus();
+        return;
+      }
+      if (sattendance.validity.valueMissing) {
+        alert("Please enter an attendance record");
+        sattendance.focus();
+        return;
+      }
+      if (sattendance.value != "PRESENT" && sattendance.value != "ABSENT") {
+        alert("Please enter a valid date format (YYYY-MM-DD)");
+        scoursedate.focus();
+        return;
+      }
+      if (!datePattern.test(scoursedate.value)) {
+        alert("Please enter a valid date format (YYYY-MM-DD)");
+        scoursedate.focus();
+        return;
+      }
+      if (smajor.validity.valueMissing || scourse.validity.valueMissing || scoursedate.validity.valueMissing || 
+        sattendance.validity.valueMissing || (sattendance.value != "PRESENT" && sattendance.value != "ABSENT") ||
+        !datePattern.test(scoursedate.value)) {
+        alert("Check your input date format (YYYY-MM-DD), Attendance record (PRESENT/ABSENT) and whether all fields are filled.");
+        return;
+      }
+
+      var xmlhttp = new XMLHttpRequest();
+      xmlhttp.onreadystatechange = function() {
+        if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+          var mesgs = document.getElementById("entries");
+          mesgs.innerHTML = xmlhttp.responseText;
+        }
+      }
+
+      xmlhttp.open("POST", "queryEntries.php", true);
+      xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+      xmlhttp.send("show=add&studentname=" + sname.value + "&major=" + smajor.value + "&course=" + scourse.value + "&coursedate=" + scoursedate.value + "&attendOrNot=" + sattendance.value);
+      
+      // clear the input fields
+      sname.value = "";
+      smajor.value = "";
+      scourse.value = "";
+      scoursedate.value = "";
+      sattendance.value = "";
+    }
+    
+    // Task 4.1 - to be implemented
+    function changeState(elem) {
+      var oldValue = elem.innerHTML;
+      var newvalue;
+      var itemID = elem.parentNode.getAttribute('id');
+
+      if (oldValue == 'PRESENT') {
+        newvalue = 'ABSENT';
+      } else {
+        newvalue = 'PRESENT';
+      }
+      
+      var xmlhttp = new XMLHttpRequest();
+      xmlhttp.open("GET", "updateState.php?id="+itemID+"&value="+newvalue,true);
+      elem.innerHTML = newvalue;
+      
+    }
+
+    // Task 2.1
+    function showAll() {
+      var xmlhttp = new XMLHttpRequest();
+          
+      xmlhttp.onreadystatechange = function () {
+        if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+          var mesgs = document.getElementById("entries");
+          mesgs.innerHTML = xmlhttp.responseText;
+        }
+      }
+      xmlhttp.open("POST", "queryEntries.php",true);
+      xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+      xmlhttp.send("show=all");
+          
+      document.getElementById("button_all").style.display = "none";
+    }
+
+    // Task 2.2 - to be implemented
+    function filterM() {
+      var xmlhttp = new XMLHttpRequest();
+
+      xmlhttp.onreadystatechange = function() {
+        if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+          var mesgs = document.getElementById("entries");
+          mesgs.innerHTML = xmlhttp.responseText;
+        }
+      }
+      xmlhttp.open("POST", "queryEntries.php", true);
+      xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+      xmlhttp.send("show=major&bymajor=" + document.getElementById("major").value);
+      
+      xmlhttp.onreadystatechange = function() {
+        if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+          var mesgs = document.getElementById("entries");
+          mesgs.innerHTML = xmlhttp.responseText;
+          document.getElementById("major").value = "";
+        }
+      }
+      document.getElementById("button_all").style.display = "block";
+    }
+
+    // Task 2.2 - to be implemented
+    function filterC() {
+      var xmlhttp = new XMLHttpRequest();
+
+      xmlhttp.onreadystatechange = function() {
+        if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+          var mesgs = document.getElementById("entries");
+          mesgs.innerHTML = xmlhttp.responseText;
+        }
+      }
+      xmlhttp.open("POST", "queryEntries.php", true);
+      xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+      xmlhttp.send("show=course&bycourse=" + document.getElementById("course").value);
+
+      xmlhttp.onreadystatechange = function() {
+        if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+          var mesgs = document.getElementById("entries");
+          mesgs.innerHTML = xmlhttp.responseText;
+          document.getElementById("course").value = "";
+        }
+      }
+      document.getElementById("button_all").style.display = "block";
+    }
+    
+    
+    </script>
+
+  </body>
+</html>

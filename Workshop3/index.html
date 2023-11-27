@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Workshop 3</title>
+  <style>
+  span {
+    margin-right: 1.5em;
+  }
+  </style>
+  <script>
+    var Stations = {};
+    var stnList = {};
+    fetch("lines.json")
+      .then(response => response.json())
+      .then(lines => {
+        lines.forEach(line => {
+          let station_opt_list = "";
+          let linename = Object.keys(line)[0];
+          let linelist = Object.values(line)[0];
+          for (const station in linelist) {
+            station_opt_list += `<option class="${linename}" value="${station}">${linelist[station]}</option>`;
+            stnList[station] = linelist[station];
+          }
+          Stations[linename] = station_opt_list;
+        });
+    let currentClass="AEL"; //assume Airport Express line initially let line = document.getElementById('line'); line.addEventListener('change', (evt) => {
+    let select = line.value;
+    if (select != currentClass) { //there is a change
+      let station = document.querySelector('#station'); 
+      station.innerHTML = Stations[select]; 
+      currentClass=select;
+    }
+    let bttn = document.getElementById('bttn');
+    bttn.addEventListener("click", fRequest);
+
+    function fRequest() {
+      let line = document.getElementById('line').value; //get the MTR line
+      let station = document.getElementById('station').value; //get the station
+      fetch(`https://rt.data.gov.hk/v1/transport/mtr/getSchedule.php?line=${line}&sta=${station}`)
+        .then( response => {
+          if (response.status == 200) {  //receive response successfully
+            response.json().then( schedule => {
+              let output = "";
+              if (schedule.status == 0) {
+                output += schedule.message;
+                if (schedule.url) {
+                  output += `<br><a href='${schedule.url}'>${schedule.url}</a>`;
+                }
+              } else {
+                if (schedule.isdelay == 'Y') {
+                  output = "No data is available";
+                } else {
+                  let dataUP = schedule.data[line+'-'+station].UP;
+                  let dataDN = schedule.data[line+'-'+station].DOWN;
+                  if (dataUP) { 
+                    for (let train of dataUP) {
+                      let time = train.time.substr(11,5);
+                      output += '<span>Time: '+time+'</span>';
+                      output += '<span>Platform: '+train.plat+'</span>';
+                      output += '<span>Destination: '+stnList[train.dest]+'<br></span>';
+                    }
+                    output += '<br>';
+                  }
+                  if (dataDN) {
+                    for (let train of dataDN) {
+                      if (Object.keys(train).length) {  //May not have data – Last Train
+                        let time = train.time.substr(11,5);
+                        output += '<span>Time: '+time+'</span>';
+                        output += '<span>Platform: '+train.plat+'</span>';
+                        output += '<span>Destination: '+stnList[train.dest]+'<br></span>';
+                      }
+                    }
+                  }
+                }
+              }
+            document.getElementById('output').innerHTML = output;
+          });
+        } else {
+          console.log("HTTP return status: " + response.status);
+        }
+      });
+    }
+  });
+    
+  </script>
+</head>
+<body>
+  <h1>Using fetch to access MTR Next Train API</h1>
+  <label for="line">Choose the MTR line:</label>
+  <select name="line" id="line">
+    <option value="AEL" selected>Airport Express</option>
+    <option value="TCL">Tung Chung Line</option>
+    <option value="TML">Tuen Ma Line</option>
+    <option value="TKL">Tseung Kwan O Line</option>
+    <option value="EAL">East Rail Line</option>
+  </select>
+  <br><br>
+  <label for="station">Choose the Station:</label>
+  <select name="station" id="station">
+    <option class="AEL" value="HOK">Hong Kong</option>
+    <option class="AEL" value="KOW">Kowloon</option>
+    <option class="AEL" value="TSY">Tsing Yi</option>
+    <option class="AEL" value="AIR">Airport</option>
+    <option class="AEL" value="AWE">AsiaWorld Expo</option>
+  </select>
+  <br><br>
+  <button id="bttn">Get Train Data</button>
+  <div id="output" style="margin-top: 1rem"></div>
+
+  <script>
+
+  </script>
+</body>
+</html>
