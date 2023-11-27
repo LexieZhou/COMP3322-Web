@@ -1,0 +1,45 @@
+<div id="outmost">
+  <h1>Financial Dashboard</h1>
+  <div id='container'>
+    <div class='block' id='block1'>
+      <h2>Block 1 - SP500</h2>
+      <p><img src="images/SP500.png" alt="SP500" style="width: 250px;">
+      </p>
+    </div>
+    <div class='block' id='block2'>
+      <h2>Block 2 - FTSE 100</h2>
+      <p><img src="images/FTSE100.png" alt="FTSE 100">
+      </p>
+    </div>
+    <div class='block' id='block3'>
+      <h2>Block 3 - Hang Seng Index</h2>
+      <p><img src="images/HSI.png" alt="Hang Seng Index" style="width: 900px;">
+      </p>
+    </div>
+    <div class='block' id='block4'>
+      <h2>Block 4 - Nasdaq Composite index</h2>
+      <p><img src="images/nasdaq.png" alt="NASDAQ" style="width: 600px;">
+      </p>
+    </div>
+    <div class='block' id='block5'>
+      <h2>Block 5 - USD Exchange Rate</h2>
+      <p><img src="images/ex_rate.png" alt="USD Rate" style="width: 250px;">
+      </p>
+    </div>
+    <div class='block' id='block6'>
+      <h2>Block 6 - Currency Converter</h2>
+      <p><img src="images/Convert-Currency.png" alt="Currency Converter" style="width: 300px;">
+      </p>
+    </div>
+    <div class='block' id='block7'>
+      <h2>Block 7 - Crypto Index</h2>
+      <p><img src="images/Crypto.png" alt="Crypto Index" style="width: 500px;">
+      </p>
+    </div>
+    <div class='block' id='block8'>
+      <h2>Block 8 - USD vs. HKD</h2>
+      <p><img src="images/USD-HKD.png" alt="USD vs. HKD" style="width: 400px;">
+      </p>
+    </div>
+  </div>
+</div>
